@@ -1,8 +1,9 @@
 services:
   client:
     image: "ginuerzh/gost:latest"
-    command: "-L socks5://:1442 -F 'mwss://${USER}:${PASSWORD}@${DOMAIN}:${PORT}'"
+    command: "-L http://:1441 -L socks5://:1442 -F 'mwss://${USER}:${PASSWORD}@${DOMAIN}:${PORT}'"
     ports:
+      - "1441:1441"
       - "1442:1442"
     env_file:
       - path: .env
